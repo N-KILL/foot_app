@@ -28,10 +28,10 @@ void main() {
       const state = 42;
       // when(() => counterCubit.state).thenReturn(state);
       // await tester.pumpApp(
-        // BlocProvider.value(
-          // value: counterCubit,
-          // child: const CounterView(),
-        // ),
+      // BlocProvider.value(
+      // value: counterCubit,
+      // child: const CounterView(),
+      // ),
       // );
       expect(find.text('$state'), findsOneWidget);
     });
@@ -41,10 +41,10 @@ void main() {
       // when(() => counterCubit.state).thenReturn(0);
       // when(() => counterCubit.increment()).thenReturn(null);
       // await tester.pumpApp(
-        // BlocProvider.value(
-        //   value: counterCubit,
-        //   child: const CounterView(),
-        // ),
+      // BlocProvider.value(
+      //   value: counterCubit,
+      //   child: const CounterView(),
+      // ),
       // );
       await tester.tap(find.byIcon(Icons.add));
       // verify(() => counterCubit.increment()).called(1);
