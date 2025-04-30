@@ -8,21 +8,13 @@ packages:
 scripts:
   clean-code:
     description: Format code and run analyzer.
-    run: |
-      echo "🔧 Formateando código..."
-      dart format --line-length 80 --set-exit-if-changed lib test
-
-      echo "🔍 Ejecutando análisis estático..."
-      flutter analyze lib test
+    exec: "sh tools/format.sh && sh tools/analyze-and-format.sh"
   
   remove-branches:
     description: Remove branches that are not in use.
-    run: |
-      echo "🗑️  Eliminando ramas no utilizadas..."
-      bash tools/remove-branches.sh
-      
+    exec: "sh tools/remove-branches.sh"
+
   generate-l10n:
     description: Generate localization files.
     run: |
-      echo "🌐 Generando archivos de localización..."
-      flutter gen-l10n
+      echo "🌐 Generando archivos de localización..." && flutter gen-l10n
