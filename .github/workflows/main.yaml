@@ -21,7 +21,7 @@ jobs:
     with:
       flutter_channel: stable
       coverage_excludes: '*.g.dart *.freezed.dart'
-      setup: dart format --line-length 80
+      setup: dart format .
 
 
   spell-check:
