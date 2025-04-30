@@ -1,5 +1,7 @@
 #!/bin/sh
 
+echo "🗑️  Eliminando ramas no utilizadas..."
+
 # Delete the remote branches, and ensure that we are inside a git repo.
 git fetch --all --prune || exit 1
 
