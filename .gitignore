@@ -13,7 +13,11 @@
 .history
 .svn/
 .env
-.lib/l10n/arb/app_localizations.dart
+
+# l10n configuration files - Auto generated.
+lib/l10n/arb/app_localizations.dart
+lib/l10n/arb/app_localizations_en.dart
+lib/l10n/arb/app_localizations_es.dart
 
 # IntelliJ related
 *.iml
