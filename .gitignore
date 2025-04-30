@@ -13,6 +13,7 @@
 .history
 .svn/
 .env
+.lib/l10n/arb/app_localizations.dart
 
 # IntelliJ related
 *.iml

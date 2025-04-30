@@ -26,6 +26,4 @@ jobs:
     with:
       includes: |
         **/*.md
-      exclude: |
-        lib/l10n/arb/app_localizations.dart
       modified_files_only: false
