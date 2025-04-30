@@ -7,15 +7,6 @@ packages:
 
 scripts:
   # DEV SCRIPTS
-  # Run flutter code formatter and analyzer
-  clean-code-win:
-    description: Format code and run analyzer.
-    run: powershell -ExecutionPolicy Bypass -File tools/analyze-and-format.ps1
-
-  clean-code-sh:
-    description: Format code and run analyzer.
-    run: sh tools/analyze-and-format.sh
-
   # Remove unused branches in local git repository  
   remove-branches-win:
     description: Remove branches that are not in use.
