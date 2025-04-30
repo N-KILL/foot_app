@@ -60,7 +60,7 @@ class ShiftDetailsPage extends StatelessWidget {
             return Column(
               children: [
                 PageTitles(
-                  // TODO: Add translation
+                  // TODO(any): Add translation
                   pageTitle:
                       'Shifts of ${formatDateYearMonthDate(selectedDate)}',
                   icon: CustomIconButton(
@@ -126,7 +126,7 @@ class ShiftDetailsPage extends StatelessWidget {
                           ],
                         ),
                 ),
-                // TODO(any): Make this based on the list of fields availables,
+                // TODO(any): Make this based on the list of fields available,
                 //  also add the option to no filter
                 if (state.listOfFields.length > 1)
                   Padding(
