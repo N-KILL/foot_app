@@ -20,7 +20,9 @@ jobs:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
     with:
       flutter_channel: stable
-      coverage_excludes: '*.g.dart *.freezed.dart .lib/l10n/arb/*.dart'
+      coverage_excludes: '*.g.dart *.freezed.dart'
+      setup: dart format --line-length 80
+
 
   spell-check:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/spell_check.yml@v1
