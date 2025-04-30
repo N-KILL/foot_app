@@ -22,3 +22,9 @@ scripts:
       git fetch --prune
       git branch --merged | grep -v "\*" | xargs -n 1 git branch -d
       git remote prune origin
+
+  generate-l10n:
+    description: Generate localization files.
+    run: |
+      echo "🌐 Generando archivos de localización..."
+      flutter gen-l10n
