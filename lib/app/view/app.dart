@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:foot_app/app/routes/routes.dart';
 import 'package:foot_app/core/themes/themes.dart';
-import 'package:foot_app/l10n/l10n.dart';
+import 'package:foot_app/l10n/arb/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 class App extends StatelessWidget {
