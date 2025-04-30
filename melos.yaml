@@ -6,13 +6,24 @@ packages:
   - tools/**
 
 scripts:
-  clean-code:
+  # DEV SCRIPTS
+  # Run flutter code formatter and analyzer
+  clean-code-win:
     description: Format code and run analyzer.
-    exec: "sh tools/format.sh && sh tools/analyze-and-format.sh"
-  
-  remove-branches:
+    run: powershell -ExecutionPolicy Bypass -File tools/analyze-and-format.ps1
+
+  clean-code-sh:
+    description: Format code and run analyzer.
+    run: sh tools/analyze-and-format.sh
+
+  # Remove unused branches in local git repository  
+  remove-branches-win:
     description: Remove branches that are not in use.
-    exec: "sh tools/remove-branches.sh"
+    run: powershell -ExecutionPolicy Bypass -File tools/remove-branches.ps1
+
+  remove-branches-sh:
+    description: Remove branches that are not in use.
+    run: sh tools/remove-branches.sh
 
   generate-l10n:
     description: Generate localization files.
