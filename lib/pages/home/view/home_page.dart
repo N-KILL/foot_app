@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foot_app/core/buttons/card_button.dart';
+import 'package:foot_app/l10n/arb/app_localizations.dart';
 import 'package:foot_app/l10n/l10n.dart';
 
 class HomePage extends StatefulWidget {
