@@ -1,0 +1,51 @@
+{
+    "@@locale": "en",
+    "appName": "FootBall Field Manager",
+    "@appName": {
+        "description": "Name of the App"
+    },
+    "homePageAppBarTitle": "FootBall Field Manager",
+    "@homePageAppBarTitle": {
+        "description": "Text shown in the AppBar of the home page"
+    },
+    "newShiftButtonText": "New Shift",
+    "@newShiftButtonText": {
+        "description": "Text shown in home page button New Shift"
+    },
+    "shiftButtonText": "Shifts",
+    "@shiftButtonText": {
+        "description": "Text shown in home page button Shifts"
+    },
+    "customizeButtonText": "Customize",
+    "@customizeButtonText": {
+        "description": "Text shown in home page button Customize"
+    },
+    "configButtonText": "Configuration",
+    "@configButtonText": {
+        "description": "Text shown in home page button Configuration"
+    },
+    "drawerFields": "Fields",
+    "@drawerFields": {
+        "description": "Text shown in drawer fields option"
+    },
+    "drawerShifts": "Shifts",
+    "@drawerShifts": {
+        "description": "Text shown in drawer shifts option"
+    },
+    "drawerSwitchTheme": "Switch theme",
+    "@drawerSwitchTheme": {
+        "description": "Text shown in drawer switch theme option"
+    },
+    "shiftPageTitle": "Shifts",
+    "@shiftPageTitle": {
+        "description": "Text shown in the title of the shifts page"
+    },
+    "errorLoadingShifts": "Error loading shifts",
+    "@errorLoadingShifts": {
+        "description": "Error message shown when shifts cannot be loaded"
+    },
+    "reloadButton": "Reload",
+    "@reloadButton": {
+        "description": "Error message shown when something cannot be loaded"
+    }
+}

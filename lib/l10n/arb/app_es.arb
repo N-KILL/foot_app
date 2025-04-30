@@ -1,0 +1,51 @@
+{
+    "@@locale": "es",
+    "appName": "FootBall Field Manager",
+    "@appName": {
+        "description": "Nombre de la aplicacion"
+    },
+    "homePageAppBarTitle": "Administrador de Canchas de Futbol",
+    "@homePageAppBarTitle": {
+        "description": "Texto mostrado en la AppBar de la página de inicio"
+    },
+    "newShiftButtonText": "Agregar turno",
+    "@newShiftButtonText": {
+        "description": "Texto que se muestra en el botón de la página de inicio, Agregar Turno"
+    },
+    "shiftButtonText": "Turnos",
+    "@shiftButtonText": {
+        "description": "Texto que se muestra en el botón de la página de inicio, Turnos"
+    },
+    "customizeButtonText": "Personalizar",
+    "@customizeButtonText": {
+        "description": "Texto que se muestra en el botón de la página de inicio, Personalizar"
+    },
+    "configButtonText": "Configuración",
+    "@configButtonText": {
+        "description": "Texto que se muestra en el botón de la página de inicio, Configuracion"
+    },
+    "drawerFields": "Canchas",
+    "@drawerFields": {
+        "description": "Texto que se muestra en el menu lateral de la opción de canchas"
+    },
+    "drawerShifts": "Turnos",
+    "@drawerShifts": {
+        "description": "Texto que se muestra en el menu lateral de la opción de turnos"
+    },
+    "drawerSwitchTheme": "Cambiar tema",
+    "@drawerSwitchTheme": {
+        "description": "Texto que se muestra en el menu lateral de la opción cambiar tema"
+    },
+    "shiftPageTitle": "Turnos",
+    "@shiftPageTitle": {
+        "description": "Texto que se muestra en el titulo de la pantalla de turnos"
+    },
+    "errorLoadingShifts": "Error al cargar los turnos",
+    "@errorLoadingShifts": {
+        "description": "Mensaje de error que se muestra cuando no se pueden cargar los turnos"
+    },
+    "reloadButton": "Recargar",
+    "@reloadButton": {
+        "description": "Mensaje de error que se muestra cuando algo no pudo ser cargado"
+    }
+}
