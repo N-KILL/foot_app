@@ -15,11 +15,9 @@
     }
   ],
   "useGitignore": true,
-  "words": [
-    "Contador",
-    "localizable",
-    "mostrado",
-    "página",
-    "Texto"
-  ]
+  "ignorePaths": [
+    "lib/l10n/arb/app_localizations.dart",
+    "lib/l10n/arb/app_localizations_en.dart",
+    "lib/l10n/arb/app_localizations_es.dart",
+  ],
 }

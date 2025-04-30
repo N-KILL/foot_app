@@ -19,10 +19,8 @@ scripts:
     description: Remove branches that are not in use.
     run: |
       echo "🗑️  Eliminando ramas no utilizadas..."
-      git fetch --prune
-      git branch --merged | grep -v "\*" | xargs -n 1 git branch -d
-      git remote prune origin
-
+      bash tools/remove-branches.sh
+      
   generate-l10n:
     description: Generate localization files.
     run: |
