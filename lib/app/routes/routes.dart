@@ -6,14 +6,19 @@ import 'package:foot_app/pages/new_shift/new_shift.dart';
 import 'package:foot_app/pages/players_home/players_home.dart';
 import 'package:foot_app/pages/register/register.dart';
 import 'package:foot_app/pages/shift_details/shift_details.dart';
+import 'package:foot_app/pages/splash_screen/splash_screen.dart';
 import 'package:go_router/go_router.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
 
 final router = GoRouter(
   navigatorKey: _rootNavigatorKey,
-  initialLocation: '/login',
+  initialLocation: '/',
   routes: [
+    GoRoute(
+      path: '/',
+      builder: (context, state) => const SplashScreenPage(),
+    ),
     GoRoute(
       path: '/login',
       builder: (context, state) => const LoginPage(),

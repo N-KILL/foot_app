@@ -22,6 +22,7 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Container(
       decoration: const BoxDecoration(
         boxShadow: defaultAppShadow,
@@ -31,6 +32,9 @@ class CustomTextField extends StatelessWidget {
         keyboardType: keyboardType,
         obscureText: obscureText,
         validator: validator,
+        style: TextStyle(
+          color: colorScheme.onSurface,
+        ),
         decoration: InputDecoration(
           hintText: hintText,
           prefixIcon: prefixIcon,
@@ -41,7 +45,7 @@ class CustomTextField extends StatelessWidget {
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
           ),
-          fillColor: Theme.of(context).colorScheme.onPrimary,
+          fillColor: colorScheme.onPrimary,
           filled: true,
           contentPadding: const EdgeInsets.symmetric(
             vertical: 12,
