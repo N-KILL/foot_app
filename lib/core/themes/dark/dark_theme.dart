@@ -22,6 +22,7 @@ const ColorScheme _customColorScheme = ColorScheme(
   onError: appWhite,
   surface: appWhite,
   onSurface: appBlack,
+  tertiary: Colors.blue, 
 );
 
 const _customTextTheme = TextTheme(

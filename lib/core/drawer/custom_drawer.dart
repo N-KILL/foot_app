@@ -2,11 +2,49 @@ import 'package:flutter/material.dart';
 import 'package:foot_app/core/text/large_text.dart';
 import 'package:foot_app/core/themes/themes.dart';
 import 'package:foot_app/l10n/l10n.dart';
+import 'package:foot_app/repositories/login_repository.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-class CustomDrawer extends StatelessWidget {
+class CustomDrawer extends StatefulWidget {
   const CustomDrawer({super.key});
+
+  @override
+  State<CustomDrawer> createState() => _CustomDrawerState();
+}
+
+class _CustomDrawerState extends State<CustomDrawer> {
+  String userData = '';
+  Future<void> _logout(BuildContext context) async {
+    final loginRepository = Provider.of<LoginRepository>(
+      context,
+      listen: false,
+    );
+
+    await loginRepository.signOut();
+
+    if (context.mounted) {
+      GoRouter.of(context).go('/login');
+    }
+  }
+
+  Future<User?> getUserData(BuildContext context) async {
+    return Provider.of<LoginRepository>(
+      context,
+      listen: false,
+    ).getCurrentUser();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getUserData(context).then((user) {
+      setState(() {
+        userData = user?.email ?? '';
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,22 +61,21 @@ class CustomDrawer extends StatelessWidget {
             decoration: BoxDecoration(
               color: theme.primaryColor,
             ),
-            child: const Padding(
-              padding: EdgeInsets.all(8),
+            child: Padding(
+              padding: const EdgeInsets.all(8),
               child: SizedBox(
                 width: double.infinity,
-                // TODO(Any): Replace with actual username and pic
                 child: Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.account_circle,
                       color: Colors.white,
                       size: 48,
                     ),
-                    SizedBox(width: 16),
+                    const SizedBox(width: 16),
                     Text(
-                      'Username',
-                      style: TextStyle(
+                      userData,
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 24,
                       ),
@@ -60,7 +97,7 @@ class CustomDrawer extends StatelessWidget {
                   ),
                   onTap: () {
                     Navigator.pop(context);
-                    GoRouter.of(context).go('/');
+                    GoRouter.of(context).go('/home');
                   },
                 ),
 
@@ -92,15 +129,27 @@ class CustomDrawer extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 32),
             child: Align(
               alignment: Alignment.bottomCenter,
-              child: ListTile(
-                title: largeText('Config', context),
-                trailing: Icon(
-                  Icons.settings,
-                  color: theme.colorScheme.onSecondary,
-                ),
-                onTap: () {
-                  Navigator.pop(context);
-                },
+              child: Column(
+                children: [
+                  ListTile(
+                    title: largeText('Config', context),
+                    trailing: Icon(
+                      Icons.settings,
+                      color: theme.colorScheme.onSecondary,
+                    ),
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                  ListTile(
+                    title: largeText('Logout', context),
+                    trailing: Icon(
+                      Icons.logout,
+                      color: theme.colorScheme.onSecondary,
+                    ),
+                    onTap: () => _logout(context),
+                  ),
+                ],
               ),
             ),
           ),

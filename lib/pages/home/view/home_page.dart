@@ -15,10 +15,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     final itemList = getItems(l10n);
+    final screenSize = MediaQuery.of(context).size;
     return Column(
       children: [
         SizedBox(
-          height: 400,
+          height: screenSize.height / 2,
           child: GridView.builder(
             physics: const NeverScrollableScrollPhysics(),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
