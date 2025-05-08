@@ -1,11 +1,13 @@
 import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
 import 'package:foot_app/models/pitch.dart';
-import 'package:foot_app/pages/shift_details/cubit/shift_details_state.dart';
+
+part 'shift_details_state.dart';
 
 class ShiftsDetailsCubit extends Cubit<ShiftsDetailsState> {
   ShiftsDetailsCubit()
       : super(
-          ShiftsDetailsInitial(
+          ShiftsDetailsState(
             selectedDate: DateTime.now(),
           ),
         );
@@ -15,7 +17,7 @@ class ShiftsDetailsCubit extends Cubit<ShiftsDetailsState> {
     List<Field> listOfFields,
   ) async {
     emit(
-      ShiftsDetailsInitial(
+      ShiftsDetailsState(
         selectedDate: selectedDate,
         listOfFields: listOfFields,
       ),
@@ -23,7 +25,7 @@ class ShiftsDetailsCubit extends Cubit<ShiftsDetailsState> {
     // TODO(any): Remove timer once have backend
     await Future<void>.delayed(const Duration(seconds: 2));
     emit(
-      ShiftsDetailsLoaded(
+      ShiftsDetailsState(
         selectedDate: state.selectedDate,
         listOfFields: state.listOfFields,
       ),

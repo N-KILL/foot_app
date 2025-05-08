@@ -11,7 +11,6 @@ ThemeData lightTheme = ThemeData(
   scaffoldBackgroundColor: appBackGroundGreen,
   useMaterial3: true,
 );
-
 const ColorScheme _customColorScheme = ColorScheme(
   brightness: Brightness.light,
   primary: appBackGroundGreen,
@@ -22,6 +21,7 @@ const ColorScheme _customColorScheme = ColorScheme(
   onError: appBlack,
   surface: appBackGroundGreen,
   onSurface: appBlack,
+  tertiary: Colors.blue, 
 );
 
 const _customTextTheme = TextTheme(

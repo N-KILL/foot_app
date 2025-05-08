@@ -3,7 +3,10 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:foot_app/core/themes/themes.dart';
+import 'package:foot_app/app/providers/repository_providers.dart';
+import 'package:foot_app/app/supabase/supabase_client.dart';
 import 'package:provider/provider.dart';
 
 class AppBlocObserver extends BlocObserver {
@@ -23,17 +26,24 @@ class AppBlocObserver extends BlocObserver {
 }
 
 Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await dotenv.load();
+
   FlutterError.onError = (details) {
     log(details.exceptionAsString(), stackTrace: details.stack);
   };
 
   Bloc.observer = const AppBlocObserver();
 
-  // Add cross-flavor configuration here
+  await initializeSupabase();
 
   runApp(
-    ChangeNotifierProvider(
-      create: (_) => ThemeProvider(),
+    MultiProvider(
+      providers: [
+        ...repositoryProviders,
+        ChangeNotifierProvider(create: (_) => ThemeProvider()),
+      ],
       child: await builder(),
     ),
   );

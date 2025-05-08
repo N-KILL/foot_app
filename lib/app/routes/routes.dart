@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:foot_app/core/scaffold/custom_scaffold.dart';
 import 'package:foot_app/pages/home/home.dart';
+import 'package:foot_app/pages/login/login.dart';
 import 'package:foot_app/pages/new_shift/new_shift.dart';
 import 'package:foot_app/pages/players_home/players_home.dart';
+import 'package:foot_app/pages/register/register.dart';
 import 'package:foot_app/pages/shift_details/shift_details.dart';
 import 'package:go_router/go_router.dart';
 
@@ -10,8 +12,16 @@ final _rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
 
 final router = GoRouter(
   navigatorKey: _rootNavigatorKey,
-  initialLocation: '/',
+  initialLocation: '/login',
   routes: [
+    GoRoute(
+      path: '/login',
+      builder: (context, state) => const LoginPage(),
+    ),
+    GoRoute(
+      path: '/register',
+      builder: (context, state) => const RegisterView(),
+    ),
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {
         return CustomScaffold(
@@ -22,7 +32,7 @@ final router = GoRouter(
         StatefulShellBranch(
           routes: [
             GoRoute(
-              path: '/',
+              path: '/home',
               builder: (context, state) => const HomePage(),
             ),
             GoRoute(

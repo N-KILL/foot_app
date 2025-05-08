@@ -1,158 +1,47 @@
-import 'package:foot_app/models/pitch.dart';
+part of 'shift_details_cubit.dart';
 
-abstract class ShiftsDetailsState {
-  ShiftsDetailsState({
+class ShiftsDetailsState extends Equatable {
+  const ShiftsDetailsState({
     required this.selectedDate,
-    this.errorMessage,
     this.listOfFields = const [],
     this.shifts = const [],
+    this.errorMessage,
     this.showOlder = false,
+    this.isLoading = false,
   });
 
-  // Selected day
   final DateTime selectedDate;
-
-  // List of available fields
   final List<Field> listOfFields;
-
-  // Error message
-  final String? errorMessage;
-
-  // List of shifts of the selected pitch
   final List<String> shifts;
-
-  // Allow showing older
+  final String? errorMessage;
   final bool showOlder;
+  final bool isLoading;
 
-  T copyWith<T extends ShiftsDetailsState>({
+  ShiftsDetailsState copyWith({
     DateTime? selectedDate,
     List<Field>? listOfFields,
-    String? errorMessage,
     List<String>? shifts,
+    String? errorMessage,
     bool? showOlder,
+    bool? isLoading,
   }) {
-    return _copyWith(
+    return ShiftsDetailsState(
       selectedDate: selectedDate ?? this.selectedDate,
       listOfFields: listOfFields ?? this.listOfFields,
-      errorMessage: errorMessage ?? this.errorMessage,
       shifts: shifts ?? this.shifts,
+      errorMessage: errorMessage,
       showOlder: showOlder ?? this.showOlder,
-    ) as T;
-  }
-
-  ShiftsDetailsState _copyWith({
-    required DateTime selectedDate,
-    required List<Field> listOfFields,
-    required String? errorMessage,
-    required List<String> shifts,
-    required bool showOlder,
-  });
-}
-
-class ShiftDetailsLoading extends ShiftsDetailsState {
-  ShiftDetailsLoading({
-    required super.selectedDate,
-    super.listOfFields,
-    super.shifts,
-    super.errorMessage,
-    super.showOlder,
-  });
-
-  @override
-  ShiftDetailsLoading _copyWith({
-    required DateTime selectedDate,
-    required List<Field> listOfFields,
-    required String? errorMessage,
-    required List<String> shifts,
-    required bool showOlder,
-  }) {
-    return ShiftDetailsLoading(
-      selectedDate: selectedDate,
-      listOfFields: listOfFields,
-      errorMessage: errorMessage,
-      shifts: shifts,
-      showOlder: showOlder,
+      isLoading: isLoading ?? this.isLoading,
     );
   }
-}
-
-class ShiftsDetailsLoaded extends ShiftsDetailsState {
-  ShiftsDetailsLoaded({
-    required super.selectedDate,
-    super.listOfFields,
-    super.shifts,
-    super.errorMessage,
-    super.showOlder,
-  });
 
   @override
-  ShiftsDetailsLoaded _copyWith({
-    required DateTime selectedDate,
-    required List<Field> listOfFields,
-    required String? errorMessage,
-    required List<String> shifts,
-    required bool showOlder,
-  }) {
-    return ShiftsDetailsLoaded(
-      selectedDate: selectedDate,
-      listOfFields: listOfFields,
-      errorMessage: errorMessage,
-      shifts: shifts,
-      showOlder: showOlder,
-    );
-  }
-}
-
-class ShiftsDetailsError extends ShiftsDetailsState {
-  ShiftsDetailsError({
-    required super.selectedDate,
-    super.listOfFields,
-    super.shifts,
-    super.errorMessage,
-    super.showOlder,
-  });
-
-  @override
-  ShiftsDetailsError _copyWith({
-    required DateTime selectedDate,
-    required List<Field> listOfFields,
-    required String? errorMessage,
-    required List<String> shifts,
-    required bool showOlder,
-  }) {
-    return ShiftsDetailsError(
-      selectedDate: selectedDate,
-      listOfFields: listOfFields,
-      errorMessage: errorMessage,
-      shifts: shifts,
-      showOlder: showOlder,
-    );
-  }
-}
-
-class ShiftsDetailsInitial extends ShiftsDetailsState {
-  ShiftsDetailsInitial({
-    required super.selectedDate,
-    super.listOfFields,
-    super.shifts,
-    super.errorMessage,
-    super.showOlder,
-  });
-
-  @override
-  ShiftsDetailsInitial _copyWith({
-    required DateTime selectedDate,
-    required List<Field> listOfFields,
-    required String? errorMessage,
-    required List<String> shifts,
-    required bool showOlder,
-  }) {
-    return ShiftsDetailsInitial(
-      selectedDate: selectedDate,
-      listOfFields: listOfFields,
-      errorMessage: errorMessage,
-      shifts: shifts,
-      showOlder: showOlder,
-    );
-  }
+  List<Object?> get props => [
+        selectedDate,
+        listOfFields,
+        shifts,
+        errorMessage,
+        showOlder,
+        isLoading,
+      ];
 }

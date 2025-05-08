@@ -49,14 +49,14 @@ class ShiftDetailsPage extends StatelessWidget {
         ),
       child: BlocBuilder<ShiftsDetailsCubit, ShiftsDetailsState>(
         builder: (context, state) {
-          if (state is ShiftDetailsLoading || state is ShiftsDetailsInitial) {
+          if (state.isLoading) {
             return Center(
               child: CircularProgressIndicator(
                 color: Theme.of(context).colorScheme.secondary,
               ),
             );
           }
-          if (state is ShiftsDetailsLoaded) {
+          if (state.listOfFields.isNotEmpty) {
             return Column(
               children: [
                 PageTitles(
