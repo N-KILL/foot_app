@@ -4,10 +4,11 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:foot_app/core/themes/themes.dart';
 import 'package:foot_app/app/providers/repository_providers.dart';
 import 'package:foot_app/app/supabase/supabase_client.dart';
+import 'package:foot_app/core/themes/themes.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AppBlocObserver extends BlocObserver {
   const AppBlocObserver();
@@ -25,7 +26,9 @@ class AppBlocObserver extends BlocObserver {
   }
 }
 
-Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
+Future<void> bootstrap(
+  FutureOr<Widget> Function() builder,
+) async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await dotenv.load();
@@ -38,9 +41,12 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
 
   await initializeSupabase();
 
+  final prefs = await SharedPreferences.getInstance();
+
   runApp(
     MultiProvider(
       providers: [
+        Provider<SharedPreferences>.value(value: prefs),
         ...repositoryProviders,
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
       ],

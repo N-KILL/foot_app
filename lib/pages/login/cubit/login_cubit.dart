@@ -1,11 +1,12 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:foot_app/repositories/login_repository.dart';
+import 'package:foot_app/repositories/login/login_repository.dart';
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
-  LoginCubit() : super(const LoginState());
-  final LoginRepository _loginRepository = LoginRepository();
+  LoginCubit(this._loginRepository) : super(const LoginState());
+
+  final LoginRepository _loginRepository;
 
   void togglePasswordVisibility() {
     emit(
@@ -63,6 +64,8 @@ class LoginCubit extends Cubit<LoginState> {
         ),
       );
     } catch (e) {
+      // TODO(any): Try to catch specific exceptions, like incorrect password
+      //  or user not found, etc.
       emit(
         state.copyWith(
           isLoading: false,
