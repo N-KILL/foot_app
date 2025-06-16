@@ -14,7 +14,7 @@ ThemeData lightTheme = ThemeData(
 const ColorScheme _customColorScheme = ColorScheme(
   brightness: Brightness.light,
   primary: appBackGroundGreen,
-  onPrimary: appWhite,
+  onPrimary: appBlack,
   secondary: appGreen,
   onSecondary: appBlack,
   error: Colors.red,

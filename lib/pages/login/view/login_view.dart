@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foot_app/core/buttons/primary_button.dart';
 import 'package:foot_app/core/textfield/custom_text_field.dart';
 import 'package:foot_app/pages/login/cubit/login_cubit.dart';
+import 'package:foot_app/repositories/login/login_repository.dart';
 import 'package:go_router/go_router.dart';
 
 class LoginPage extends StatelessWidget {
@@ -11,7 +12,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => LoginCubit(),
+      create: (context) => LoginCubit(context.read<LoginRepository>()),
       child: const LoginView(),
     );
   }
@@ -194,9 +195,9 @@ class _LoginViewState extends State<LoginView> {
                     padding: const EdgeInsets.all(8),
                     child: Row(
                       children: [
-                        const Expanded(
+                        Expanded(
                           child: Divider(
-                            color: Colors.black12,
+                            color: colorScheme.onPrimary,
                             thickness: 1,
                           ),
                         ),
@@ -205,7 +206,7 @@ class _LoginViewState extends State<LoginView> {
                           "Don't have an account?",
                           style: TextStyle(
                             fontSize: 16,
-                            color: colorScheme.onSurface,
+                            color: colorScheme.onPrimary,
                           ),
                         ),
                         const SizedBox(width: 8),
@@ -220,9 +221,9 @@ class _LoginViewState extends State<LoginView> {
                           onTap: () => context.go('/register'),
                         ),
                         const SizedBox(width: 16),
-                        const Expanded(
+                        Expanded(
                           child: Divider(
-                            color: Colors.black12,
+                            color: colorScheme.onPrimary,
                             thickness: 1,
                           ),
                         ),

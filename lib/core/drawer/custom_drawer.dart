@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foot_app/core/text/large_text.dart';
 import 'package:foot_app/core/themes/themes.dart';
 import 'package:foot_app/l10n/l10n.dart';
-import 'package:foot_app/repositories/login_repository.dart';
+import 'package:foot_app/repositories/login/login_repository.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -22,7 +22,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
       listen: false,
     );
 
-    await loginRepository.signOut();
+    await loginRepository.logOut();
 
     if (context.mounted) {
       GoRouter.of(context).go('/login');

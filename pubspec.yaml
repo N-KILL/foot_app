@@ -19,6 +19,7 @@ dependencies:
   intl: ^0.19.0
   melos: ^6.3.2
   provider: ^6.1.2
+  shared_preferences: ^2.5.3
   supabase_flutter: ^2.9.0
   table_calendar: ^3.1.3
 
